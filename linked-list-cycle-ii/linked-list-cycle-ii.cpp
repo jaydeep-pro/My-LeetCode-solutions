@@ -18,18 +18,15 @@ public:
             slow = slow->next;
 
             if(fast == slow){
-                flag = true;
-                break;
-            }
-        }
-        if(flag){
-            slow = head;
+                slow = head;
             while(slow != fast){
                 fast = fast->next;
                 slow = slow->next;
             }
             return slow;
-
-        }else return nullptr;
+            }
+        }
+           
+ return nullptr;
     }
 };
