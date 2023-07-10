@@ -1,10 +1,10 @@
 class Solution {
 public:
-    int orangesRotting(vector<vector<int>>& grid) {
+    int orangesRotting(vector<vector<int>>& image) {
+         vector<vector<int>>grid = image;
         int m= grid.size();
         int n= grid[0].size();
         vector<vector<int>>vis(m , vector<int>(n, 0));
-        
         queue<pair<pair<int, int>, int>>q;
 
         for(int i=0;i<m;i++){
