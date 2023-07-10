@@ -15,7 +15,8 @@ vector<vector<int>>& vis, int m , int n, int delrow[] , int delcol[] , int initi
     }
 
 }
-    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+    vector<vector<int>> floodFill(vector<vector<int>>& grid, int sr, int sc, int color) {
+        vector<vector<int>> image = grid;
         int m = image.size();
         int n = image[0].size();
 
