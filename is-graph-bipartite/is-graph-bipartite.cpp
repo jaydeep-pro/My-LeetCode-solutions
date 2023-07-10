@@ -2,17 +2,26 @@ class Solution {
 public:
   bool dfs(int node,  vector<vector<int>>&adj, vector<int>&color, int col){
 
-      color[node] = col;
+     queue<int>q;
+     q.push(node);
+     
+     color[node] = col;
 
-      for(auto it: adj[node]){
-          if(color[it] == -1){
-             if(dfs(it, adj, color, !col)== false)
-             return false;
-          }
-          else if(col == color[it]){
-              return false;
-          }
-      }
+     while(!q.empty()){
+         node = q.front();
+         q.pop();
+
+         for(auto it: adj[node]){
+             if(color[it] == -1){
+                 q.push(it);
+                 color[it] = !color[node];
+             }
+             else if(color[node] == color[it]){
+                 return false;
+             }
+         }
+     }
+
       return true;
   }
 
