@@ -22,7 +22,7 @@ public:
 
                     if(st.find(tempWord) != st.end()){
                         q.push({tempWord, level + 1});
-                        st.erase(tempWord);
+                      
                     }
                      tempWord[i] = tempChar;
                 }
