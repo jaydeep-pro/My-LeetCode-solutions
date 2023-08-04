@@ -1,32 +1,25 @@
 class Solution
 {
-    public:
-        bool solve(string s, vector<string> &wordDict, int ind, int n , vector<int>&dp)
-        {
-            if (ind == n) return true;
-            if(dp[ind] != -1) return dp[ind];
-
-            for (int i = ind; i < n; i++)
-            {
-                string word = s.substr(ind, i - ind + 1);
-                for (int j = 0; j < wordDict.size(); j++)
-                {
-                    if (word == wordDict[j])
-                    {
-                        if (solve(s, wordDict, i + 1, n , dp)){
-                            dp[ind]=1;
-                            return true;}
-                    }
-                }
-            }
-            dp[ind]=0;
-            return false;
-        }
+public:
     bool wordBreak(string s, vector<string> &wordDict)
     {
-        vector<int>dp(s.length(), -1);
-        if (solve(s, wordDict, 0, s.length() , dp) == true) return true;
+        int n = s.length();
+        vector<bool> dp(n + 1, false);
+        dp[0] = true;
 
-        return false;
+        for (int i = 1; i <= n; i++)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                string word = s.substr(j, i - j);
+                if (dp[j] && find(wordDict.begin(), wordDict.end(), word) != wordDict.end())
+                {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+
+        return dp[n];
     }
 };
