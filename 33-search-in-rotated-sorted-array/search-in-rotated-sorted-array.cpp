@@ -6,7 +6,7 @@ public:
 
 
     while (low < high) {
-        int mid = low + (high - low) / 2;
+        int mid = (high + low)/ 2;
         if (nums[mid] > nums[high])
             low = mid + 1;
         else
@@ -18,7 +18,7 @@ public:
     high = n - 1;
 
     while (low <= high) {
-        int mid = low + (high - low) / 2;
+        int mid = (high + low)/ 2;
         int realmid = (mid + pivot) % n;
 
         if (nums[realmid] == target)
