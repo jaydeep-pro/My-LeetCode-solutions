@@ -1,42 +1,33 @@
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
-        set<int>st;
-        for(int i=0;i<nums.size();i++){
-            st.insert(nums[i]);
-        }
-        nums.clear();
-        for(auto it: st){
-            nums.push_back(it);
-        }
-        int pivot =0;
         int n= nums.size();
-        int low =0;
-        int high = n-1;
+    
+        int s=0;
+        int e= n-1;
 
-       
-    while (low < high) {
-        int mid = (high + low)/ 2;
-        if (nums[mid] > nums[high])
-            low = mid + 1;
-        else
-            high = mid;
-    }
+        while(s <= e){
+            int mid = (e-s)/2 + s;
 
-        pivot = low;
+            if(nums[mid] == target) return true;
 
-        low =0;
-        high = n-1;
-
-        while(high >= low){
-            int mid = (low + high)/2;
-            int realmid = (mid + pivot)%n;
-
-            if(nums[realmid] == target) return true;
-            else if(nums[realmid] > target) high = mid-1;
-            else low = mid+1;
+            if((nums[s] == nums[mid]) && (nums[e] == nums[mid])){
+                s++;
+                e--;
+            }
+            else if(nums[s] <= nums[mid]){
+                if((nums[s] <= target) && (nums[mid] > target)) 
+                     e = mid -1;
+                else 
+                     s = mid+1;
+            }
+            else{
+                if((nums[mid] < target) && (nums[e] >= target))
+                     s = mid + 1;
+                else 
+                     e = mid -1;
+            }
         }
-
         return false;
     }
 };
