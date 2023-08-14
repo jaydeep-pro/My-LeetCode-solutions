@@ -13,8 +13,8 @@ public:
 
     for(auto it: mp){
         minHeap.push({it.second, it.first});
-        if(minHeap.size()  > k) minHeap.pop();
     }
+     while(minHeap.size()  > k) minHeap.pop();
   
 
    while(!minHeap.empty()){
