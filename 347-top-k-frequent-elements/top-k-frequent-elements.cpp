@@ -9,17 +9,17 @@ public:
         }
 
          vector<int>ans;
-    priority_queue<pair<int , int>, vector<pair<int,int>>, greater<pair<int, int>>> minHeap;
+    priority_queue<pair<int , int>> maxHeap;
 
     for(auto it: mp){
-        minHeap.push({it.second, it.first});
+        maxHeap.push({it.second, it.first});
     }
-     while(minHeap.size()  > k) minHeap.pop();
+   
   
 
-   while(!minHeap.empty()){
-       ans.push_back(minHeap.top().second);
-       minHeap.pop();
+   while(ans.size() != k){
+       ans.push_back(maxHeap.top().second);
+       maxHeap.pop();
    }
       return ans;
     }
