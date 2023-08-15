@@ -21,9 +21,8 @@ public:
            }
            temp = temp->next;
         }
-        for(int i=0;i<gt.size();i++){
-            lo.push_back(gt[i]);
-        }
+        lo.insert(lo.end(), gt.begin(), gt.end());
+
         temp = head;
         int i=0;
         while(temp){
