@@ -2,7 +2,7 @@ class Solution {
 public:
     string reorganizeString(string s) {
        string ans;
-       priority_queue<pair<int, char>>pq;
+       priority_queue<pair<int, int>>pq;
       int arr[26]= {0};
 
        for(char c : s){
