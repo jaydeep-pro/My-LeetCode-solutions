@@ -5,7 +5,7 @@ public:
         
 
         if(l != m+n) return false;
-        vector<vector<bool>> dp(m+1 , vector<bool>(n+1));
+        vector<vector<bool>> dp(m+1 , vector<bool>(n+1 , false));
         
         for(int i=0;i<=m;i++){
             for(int j=0;j<=n;j++){
