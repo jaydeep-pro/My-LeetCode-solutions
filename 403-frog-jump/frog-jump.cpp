@@ -21,6 +21,7 @@ public:
             mp.insert({stones[i] , i});
         }
         memset(dp, -1, sizeof(dp));
-     return solve(stones, stones.size(), 0, 0);
+      solve(stones, stones.size(), 0, 0);
+      return dp[0][0];
     }
 };
