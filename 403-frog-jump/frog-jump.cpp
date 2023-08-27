@@ -7,11 +7,12 @@ public:
 
        if(dp[idx][prev] != -1) return dp[idx][prev];
 
-       int ans = false;
+       int ans = 0;
        for(int next = prev-1;next <= prev+1;next++){
            if(next >0 && mp.find(stones[idx] + next) != mp.end()){
-               ans = ans|| solve(stones, n, mp[stones[idx]+ next], next);
+               ans =solve(stones, n, mp[stones[idx]+ next], next);
            }
+           if(ans) break;
        }
        return dp[idx][prev] = ans;
    }
