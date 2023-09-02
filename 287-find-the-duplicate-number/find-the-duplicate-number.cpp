@@ -6,9 +6,9 @@ public:
            if(st.find(nums[i]) != st.end()){
                return nums[i];
            }
-           else{
+          
                st.insert(nums[i]);
-           }
+           
        }
        return -1;
     }
