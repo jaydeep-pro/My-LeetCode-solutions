@@ -12,27 +12,12 @@
 class Solution
 {
     public:
-        void solve(TreeNode *root)
-        {
-            if (!root) return;
-
-            TreeNode* temp ;
-          swap(root->right, root->left);
-        //     if(root->left){
-        //         temp = root->left;
-        //     }
-        //     if(root->right){
-        //        root->left = root->right;
-        //     }
-        //    root->right = temp;
-
-            solve(root->right);
-            solve(root->left);
-        }
     TreeNode* invertTree(TreeNode *root)
     {
-       
-        solve(root);
+       if (!root) return root;
+        swap(root->right, root->left);
+       invertTree(root->left);
+       invertTree(root->right);
         return root;
     }
 };
