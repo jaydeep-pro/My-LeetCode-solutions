@@ -15,9 +15,18 @@ class Solution
     TreeNode* invertTree(TreeNode *root)
     {
        if (!root) return root;
-        swap(root->right, root->left);
-       invertTree(root->left);
-       invertTree(root->right);
+        stack<TreeNode*>st;
+        st.push(root);
+
+        while(!st.empty()){
+            TreeNode*temp = st.top();
+            st.pop();
+            if(temp){
+                st.push(temp->left);
+                st.push(temp->right);
+                swap(temp->left, temp->right);
+            }
+        }
         return root;
     }
 };
