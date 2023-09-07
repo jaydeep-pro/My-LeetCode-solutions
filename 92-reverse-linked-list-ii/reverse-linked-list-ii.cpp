@@ -20,12 +20,12 @@ public:
         right--;
         while(left < right) swap(v[left++], v[right--]);
 
-        ListNode* ans = new ListNode(0);
-        ListNode*dummy = ans;
+        head = new ListNode(0);
+        ListNode*dummy = head;
         for(int i=0;i<v.size();i++){
             dummy->next = new ListNode(v[i]);
             dummy = dummy->next;
         }
-        return ans->next;
+        return head->next;
     }
 };
