@@ -12,7 +12,7 @@ public:
            pref = pref*nums[i];
            suff = suff*nums[n-1-i];
 
-           ans = max(ans, max(pref, suff));
+           ans = max({ans, pref, suff});
        } 
        return ans;
     }
