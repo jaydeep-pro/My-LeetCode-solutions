@@ -22,7 +22,21 @@ public:
     }
     int combinationSum4(vector<int>& nums, int target) {
         int n= nums.size();
-        vector<int>dp(target+1, -1);
-        return solve(nums, target, 0, n ,dp);
+        vector<int>dp(target+1, 0);
+
+        
+      dp[0] =1;
+
+        for(int i=1;i<=target;i++){
+            for(int j=0;j<n;j++){
+                //pick
+               if(i - nums[j] >=0){
+                   if(dp[i] > INT_MAX - dp[i-nums[j]]) break;
+                   dp[i] +=  dp[i-nums[j]];
+               }
+            }
+
+        }
+        return dp[target];
     }
 };
