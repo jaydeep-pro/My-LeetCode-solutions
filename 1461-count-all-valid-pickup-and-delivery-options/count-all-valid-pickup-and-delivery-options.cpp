@@ -1,12 +1,13 @@
 class Solution {
 public:
+long mod = 1000000007;
     int countOrders(int n) {
+        if(n ==1) return 1;
+        
         long ans =1;
-        long mod = 1000000007;
-        for(int i=1;i<=n;i++){
-            ans = (ans*i)%mod;
-            ans = (ans*(2*i-1))%mod;
-        }
-        return ans;
+
+        ans = (n*(2*n-1))%mod;
+        return (ans*countOrders(n-1))%mod;
+        
     }
 };
