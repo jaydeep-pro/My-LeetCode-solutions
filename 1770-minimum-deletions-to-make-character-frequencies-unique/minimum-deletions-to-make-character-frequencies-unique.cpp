@@ -5,7 +5,7 @@ public:
         for(int i=0;i<s.length();i++){
             mp[s[i]]++;
         }
-        set<int>st;
+        unordered_set<int>st;
 
       int count =0;
         for(auto it: mp){
