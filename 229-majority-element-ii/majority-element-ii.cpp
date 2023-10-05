@@ -20,18 +20,14 @@ public:
                count2--;
            }
        }
-      count1 = count2 = 0;
+        count1 = count2 = 0;
       for(auto x : nums){
           if(x == first ) count1++;
           else if(x == second) count2++;
       }
-      vector<int>ans;
-      if(count1 > nums.size()/3){
-          ans.push_back(first);
-      }
-      if(count2 > nums.size()/3){
-          ans.push_back(second);
-      }
-      return ans;
+    if(count1 > nums.size()/3 && count2 > nums.size()/3)        return {first, second};
+       else if(count1 > nums.size()/3) return {first};
+       else if(count2 > nums.size()/3) return {second};
+       else return {};
     }
 };
