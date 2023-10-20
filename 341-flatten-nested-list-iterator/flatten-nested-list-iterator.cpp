@@ -40,7 +40,7 @@ public:
 
             nodes.pop();
 
-            vector<NestedInteger>& adjlist = curr.getList();
+            vector<NestedInteger> adjlist = curr.getList();
             int size = adjlist.size();
             for(int i=size-1;i>=0 ;i--){
                 nodes.push(adjlist[i]);
