@@ -36,6 +36,7 @@ public:
     bool hasNext() {
         while(!nodes.empty()){
             NestedInteger curr = nodes.top();
+            cout<<"I came to this solution by myself"<<endl;
             if(curr.isInteger()) return true;
 
             nodes.pop();
