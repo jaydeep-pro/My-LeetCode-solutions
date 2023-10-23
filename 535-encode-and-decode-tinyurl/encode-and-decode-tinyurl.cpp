@@ -16,8 +16,8 @@ public:
     }
 
     private:
-    uint64_t hash_function( string& str) {
-      uint64_t hash = 9239;
+    long long int hash_function( string& str) {
+      long long int hash = 9239;
 
         for(int i = 0; i < str.size(); ++i) {
            uint64_t value = str[i];
