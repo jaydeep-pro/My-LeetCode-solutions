@@ -8,7 +8,7 @@ public:
 
         // // if(floor(x) == x) return true;
         // return false;
-
+cout<<"Ek 1 hone chaiye and even zeros hone chaiye"<<endl;
         return __builtin_popcount(n) == 1 && __builtin_ctz(n)%2 ==0;
 
 
