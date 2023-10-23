@@ -4,9 +4,9 @@ public:
         if(n == 0) return false;
         double x = (log(n))/log(4);
 
-        // if(trunc(x) == x) return true;
+         if(trunc(x) == x) return true;
 
-        if(floor(x) == x) return true;
+        // if(floor(x) == x) return true;
         return false;
 
 
