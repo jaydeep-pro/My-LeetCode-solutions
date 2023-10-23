@@ -17,12 +17,12 @@ public:
 
     private:
     uint64_t hash_function( string& str) {
-        uint64_t hash = 9239;
+      uint64_t hash = 9239;
       uint64_t prime = 9999;
 
         for(int i = 0; i < str.size(); ++i) {
            uint64_t value = str[i];
-            hash = hash ^ value;
+            hash = hash * value;
             hash *= prime;
         }
 
