@@ -5,6 +5,7 @@ public:
         long ans =0;
         sort(arr.begin(), arr.end());
         unordered_map<int,long>mp;
+         for(int i=0;i<arr.size();i++) mp[arr[i]]++;
        
         for(int i=0;i<arr.size();i++){
              long temp = 1;
