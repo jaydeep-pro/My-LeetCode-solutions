@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int noofbits(int n){
+   static int noofbits(int n){
         int bits =0;
         while(n){
             bits ++;
@@ -8,17 +8,13 @@ public:
         }
         return bits;
     }
-    vector<int> sortByBits(vector<int>& arr) {
-         priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>>pq;
-         for(int i=0;i<arr.size();i++){
-             pq.push({noofbits(arr[i]), arr[i]});
-         }
+    static bool compare(int a , int b){
+        if(noofbits(a) == noofbits(b)) return a<b;
 
-         arr.clear();
-         while(!pq.empty()){
-             arr.push_back(pq.top().second);
-             pq.pop();
-         }
+        return noofbits(a) < noofbits(b);
+    }
+    vector<int> sortByBits(vector<int>& arr) {
+        sort(arr.begin(), arr.end(), compare);
          return arr;
     }
 };
