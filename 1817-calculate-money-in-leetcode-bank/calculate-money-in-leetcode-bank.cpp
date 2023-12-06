@@ -1,22 +1,16 @@
 class Solution {
 public:
     int totalMoney(int n) {
-        int num = 28;
-       long long int pre = 1;
-        int suff = 8;
-       long long int count =0;
-        while(n>=7){
-            n = n-7;
-            count += num;
+       int count =0;
+       int monday = 1;
 
-            num = num-pre++;
-            num = num + suff++;
-        }
-        
-        while(n>=1){
-            count += pre++;
-            n--;
-        }
-        return count;
+       while(n>0){
+         for(int i=0;i<min(7,n);i++){
+           count += monday + i;
+         }
+         monday++;
+         n = n-7;
+       }
+       return count;
     }
-};
+}; 
