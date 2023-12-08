@@ -16,7 +16,7 @@ public:
             ans += ')';
             return;
         }
-        if (root->right && !root->left) ans+="()";
+        if ( !root->left && root->right ) ans+="()";
        
         if(root->left){
             ans = ans + '(' + to_string(root->left->val);
